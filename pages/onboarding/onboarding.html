@@ -1,0 +1,174 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Welcome to Scam &amp; Phishing Guardian</title>
+<link rel="stylesheet" href="onboarding.css">
+</head><body>
+<div class="wrap">
+  <div class="top">
+    <div class="mark">S</div>
+    <div class="brand">Scam &amp; Phishing Guardian</div>
+    <div class="rail" id="rail" aria-hidden="true"></div>
+    <button class="skip" id="skip">Skip intro</button>
+  </div>
+
+  <div class="stage">
+    <!-- 1 · PROBLEM -->
+    <section class="step on" data-step="0">
+      <div class="grid">
+        <div>
+          <div class="eyebrow">The one thing fakes cannot copy</div>
+          <h1>Spot the one thing a fake page cannot copy.</h1>
+          <p class="lede wide">A fake login or a fake store can look exactly like the real one. The design is copied. The address is not. Guardian reads the address of each site you open and tells you, calmly, when something is off.</p>
+          <p class="pt">No account and no setup. It starts watching the moment you install it, and it warns. It never blocks you.</p>
+        </div>
+        <div class="visual">
+          <div class="mockhd"><i></i><i></i><i></i></div>
+          <div class="field"><label>The address you typed</label><div class="box">paypa1-verify.top</div></div>
+          <div class="field"><label>The page it shows you</label><div class="box">your bank, pixel for pixel</div></div>
+          <div class="field"><label>The part that matters</label><div class="box">one wrong letter, a strange ending</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · INSTANT WIN -->
+    <section class="step" data-step="1">
+      <div class="grid">
+        <div>
+          <div class="eyebrow">The warning, with the reason</div>
+          <h1>A quiet banner catches what your eyes miss.</h1>
+          <p class="lede wide">When an address is on a public threat list or imitates a known brand, an amber banner appears at the top of the page with the exact reason. Then the choice is yours: Leave, Continue anyway, or This is safe.</p>
+          <button class="btn btn--ghost" id="demoBtn" style="margin-top:18px">See a warning</button>
+        </div>
+        <div class="visual">
+          <div class="mockhd"><i></i><i></i><i></i></div>
+          <div class="field"><label>Address you opened</label><div class="box" data-fill="paypa1-verify.top">&nbsp;</div></div>
+          <div class="field"><label>Guardian banner</label><div class="box" data-fill="Imitates paypal.com. First seen in certificate logs 4 days ago.">&nbsp;</div></div>
+          <div class="frameworks">
+            <span class="tag fw">Checked on your device</span><span class="tag fw">Reason shown</span><span class="tag fw">Never blocks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · INVESTMENT -->
+    <section class="step" data-step="2">
+      <div class="grid">
+        <div>
+          <div class="eyebrow">One switch, already on</div>
+          <h1>Catch scam domains that are only days old.</h1>
+          <p class="lede wide">Most phishing domains are only days old. When an address imitates a known brand, Guardian can ask the public certificate logs when that domain first appeared. Only the bare domain is asked about, never the page you opened.</p>
+          <p class="pt">It is on by default and it makes the warnings sharper. Keep it on, or turn it off here and in settings any time.</p>
+        </div>
+        <div class="visual">
+          <form class="pform" id="pform" onsubmit="return false">
+            <label>Domain-age double-check</label>
+            <p class="note">On, the banner can say how young a look-alike domain is. Off, Guardian still warns from its threat lists and the look-alike engine.</p>
+            <button class="btn btn--primary" id="saveBtn" style="margin-top:16px;width:100%">Keep this check on</button>
+            <button class="btn btn--ghost" id="offBtn" style="margin-top:10px;width:100%">Turn it off</button>
+            <div class="saved" id="saved"><span class="chk"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span><span id="savedMsg">Saved.</span></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · TRUST + CONSENT -->
+    <section class="step" data-step="3">
+      <div class="grid">
+        <div>
+          <div class="eyebrow">What it sees, and who built it</div>
+          <h1>Keep every check on your device.</h1>
+          <p class="lede wide">To do its job, Guardian reads the site address you visit to check it against threat lists and scam signals. Checks run on your device. No browsing history leaves this device.</p>
+          <div class="stats">
+            <div><b>MV3</b><span>modern, sandboxed, no remote code</span></div>
+            <div><b>0</b><span>pages, history or keystrokes sent anywhere</span></div>
+            <div><b>100%</b><span>of checks run locally, on this device</span></div>
+          </div>
+          <p class="pt">The threat lists are public and attributed: Phishing.Database and URLhaus by abuse.ch. The privacy policy is one page of plain words, and the whole extension is open source with no tracking.</p>
+          <div class="morelinks">
+            <a href="https://zovo.one/privacy-policy" target="_blank" rel="noopener">Privacy policy</a>
+            <a href="https://github.com/theluckystrike" target="_blank" rel="noopener">github.com/theluckystrike</a>
+            <a href="https://zovo.one/why?ref=scam-guardian" target="_blank" rel="noopener">Why I build these tools</a>
+          </div>
+        </div>
+        <div class="visual">
+          <div class="trust">
+            <div class="trow"><div class="tico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h4>Keeps everything on your device</h4><p>Threat lists live inside the extension and the checks are local. No account, no sync server, no history upload.</p></div></div>
+            <div class="trow"><div class="tico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div><div><h4>One builder you can find</h4><p>Not a faceless company. One developer who ships in public, answers you directly, and publishes the code under the MIT license at <a href="https://github.com/theluckystrike" target="_blank" rel="noopener">github.com/theluckystrike</a>.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · OFFER -->
+    <section class="step" data-step="4">
+      <div style="text-align:center;max-width:620px;margin:0 auto 22px">
+        <div class="eyebrow" style="text-align:center">The honest trade</div>
+        <h1 style="font-size:34px">Keep free forever, or stay current.</h1>
+        <p class="lede wide" style="margin:0 auto">Every warning, with its reason, stays free for as long as you use it. Pro refreshes your threat list every day, so a scam domain registered this morning gets caught this afternoon.</p>
+      </div>
+      <div class="plans">
+        <div class="plan" data-tier="free">
+          <div class="pn">Free</div>
+          <div class="price">$0<small> forever</small></div>
+          <ul id="sg-free-features">
+            <li>Unlimited warnings from the bundled threat list</li>
+            <li>Look-alike domain warnings, with reasons</li>
+            <li>One-tap allowlist and a private catch ledger</li>
+            <li>Warns, never blocks</li>
+          </ul>
+        </div>
+        <div class="plan hero" data-tier="pro">
+          <div class="ribbon">One payment</div>
+          <div class="pn" style="color:var(--gold-dark)">Lifetime</div>
+          <div class="price">$99<small> one time</small></div>
+          <ul id="sg-pro-features">
+            <li>Daily threat-list refresh catches today&rsquo;s domains today</li>
+            <li>On-device scam-text check, never sent anywhere</li>
+            <li>Monthly catch report in plain English</li>
+            <li>Family profiles for every device in the household</li>
+            <li>One payment, not a subscription, ever</li>
+          </ul>
+          <a class="btn btn--pro" id="offerCta" href="https://zovo.one/pricing?utm_source=scam-guardian&amp;utm_medium=extension&amp;utm_campaign=upgrade&amp;utm_content=onboarding" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:18px">See both ways in</a>
+          <p class="guar">Two ways in. $4.99/month, cancel anytime. Or $99 once, never pay again · it pays for itself in about 20 months. 14-day money-back, no questions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · CLOSE -->
+    <section class="step" data-step="5">
+      <div class="grid">
+        <div>
+          <div class="eyebrow">You are set</div>
+          <h1>Browse freely while Guardian keeps watch.</h1>
+          <p class="lede wide">There is nothing left to configure. If a site you open is listed or looks like a fake, the banner tells you exactly why, and what you can do next.</p>
+          <div class="sign">
+            <h4 style="font-size:13px;margin-bottom:7px;color:var(--tx)">The developer</h4>
+            I build these tools on my own, in the open. If a warning ever looks wrong, or something breaks, write to me and I answer. If you upgrade, your payment keeps the threat lists fresh and funds the next honest tool.
+            <div class="morelinks" style="margin-top:13px">
+              <a href="https://github.com/theluckystrike" target="_blank" rel="noopener">Reach me on GitHub</a>
+              <a href="https://zovo.one" target="_blank" rel="noopener">zovo.one</a>
+            </div>
+          </div>
+        </div>
+        <div class="visual">
+          <div class="cheat">
+            <div class="row"><span>A site feels wrong</span><span class="act">Read the reason</span></div>
+            <div class="row"><span>You know it is safe</span><span class="act">This is safe</span></div>
+            <div class="row"><span>You want out</span><span class="act">Leave</span></div>
+            <div class="row"><span>Your catch history</span><span class="act">Toolbar icon</span></div>
+          </div>
+          <p class="pt" style="margin-top:16px">The popup keeps a private ledger of your catches, on this device only. Open it any time from the toolbar icon.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="nav">
+    <button class="btn btn--ghost" id="back" style="visibility:hidden">Back</button>
+    <span class="stepno" id="stepno">1 of 6</span>
+    <span class="spacer"></span>
+    <button class="btn btn--primary" id="next">Next step</button>
+  </div>
+</div>
+
+<script src="onboarding.js" defer></script>
+</body></html>

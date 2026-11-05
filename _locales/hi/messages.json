@@ -1,0 +1,534 @@
+{
+  "extName": {
+    "message": "Scam & Phishing Guardian",
+    "description": "Extension name"
+  },
+  "extDesc": {
+    "message": "Spots scam and fake-login sites and shows the exact reason, on your device. Warns, never blocks. No browsing history leaves it.",
+    "description": "Extension description (store summary, 128 chars)"
+  },
+  "popupSubtitle": {
+    "message": "Spots scams, never blocks you",
+    "description": "Popup header subtitle"
+  },
+  "tierFree": {
+    "message": "Free",
+    "description": "Free tier badge"
+  },
+  "tierPro": {
+    "message": "Pro",
+    "description": "Pro tier badge"
+  },
+  "statusProtected": {
+    "message": "Protected",
+    "description": "Hero status when protection is active"
+  },
+  "statusPaused": {
+    "message": "Paused",
+    "description": "Hero status when site access is off"
+  },
+  "statusDegraded": {
+    "message": "Heuristics only",
+    "description": "Hero status when the threat list is unavailable"
+  },
+  "heroListLine": {
+    "message": "List from $1 keeps watch ($2)",
+    "description": "Hero sub-line. $1 = list date, $2 = source label (bundled snapshot / daily refresh)"
+  },
+  "heroListUnknown": {
+    "message": "List date unknown, watch keeps running",
+    "description": "Hero sub-line when no list date is known"
+  },
+  "sourceBundled": {
+    "message": "bundled snapshot",
+    "description": "Threat-list source label for the bundled build-date snapshot"
+  },
+  "sourceRuntime": {
+    "message": "daily refresh",
+    "description": "Threat-list source label for the Pro runtime-refreshed list"
+  },
+  "pausedNote": {
+    "message": "Site access is off, so Guardian cannot check pages. Turn site access back on for this extension in Chrome's extension details.",
+    "description": "Hero note when host permission has been narrowed"
+  },
+  "degradedNote": {
+    "message": "The threat list is unavailable, so exact-match warnings are off. Look-alike checks still run.",
+    "description": "Hero note when the threat list failed to load"
+  },
+  "currentTabFlagged": {
+    "message": "This site is flagged:",
+    "description": "Prefix for the current-tab flagged notice in the popup"
+  },
+  "ledgerEyebrow": {
+    "message": "This month",
+    "description": "Catch-ledger section label"
+  },
+  "monthLabelOne": {
+    "message": "risky site flagged this month",
+    "description": "Ledger count label, singular"
+  },
+  "monthLabelMany": {
+    "message": "risky sites flagged this month",
+    "description": "Ledger count label, plural"
+  },
+  "ledgerEmptyTitle": {
+    "message": "Guardian spots nothing risky yet",
+    "description": "Ledger empty-state title"
+  },
+  "ledgerEmptyText": {
+    "message": "Quiet is good. Guardian only speaks up when several warning signs agree.",
+    "description": "Ledger empty-state body"
+  },
+  "recentEyebrow": {
+    "message": "Recent catches",
+    "description": "Recent-catches list label"
+  },
+  "timeJustNow": {
+    "message": "moments ago",
+    "description": "Relative time for catches under a minute old"
+  },
+  "allowlistShortcut": {
+    "message": "Manage allowed sites",
+    "description": "Popup link to the options allowlist editor"
+  },
+  "proEyebrow": {
+    "message": "Pro",
+    "description": "Pro card section label"
+  },
+  "proPriceLine": {
+    "message": "Daily list refresh",
+    "description": "Pro card chip next to the eyebrow. Neutral benefit tease, no price in-store (store-safe split)"
+  },
+  "proHeadline": {
+    "message": "Catch today's phishing domains today.",
+    "description": "Popup Pro card headline benefit (the one outcome Pro delivers)"
+  },
+  "proRowRefreshTitle": {
+    "message": "Catch today's new scam domains",
+    "description": "Locked Pro row title: runtime feed refresh"
+  },
+  "proRowRefreshNoteDate": {
+    "message": "Your list froze on $1. Pro refreshes it every day.",
+    "description": "Locked Pro row note with the real bundled-list date. $1 = date"
+  },
+  "proRowRefreshNoteUnknown": {
+    "message": "Your bundled list stays at its build date. Pro refreshes it every day.",
+    "description": "Locked Pro row note when the list date is unknown"
+  },
+  "proRowNanoTitle": {
+    "message": "Spots scam wording on the page",
+    "description": "Locked Pro row title: Nano classification"
+  },
+  "proRowNanoNote": {
+    "message": "Reads page text on your device for scam language. Never sent anywhere.",
+    "description": "Locked Pro row note: Nano classification"
+  },
+  "proRowReportTitle": {
+    "message": "Monthly catch report",
+    "description": "Locked Pro row title: monthly report"
+  },
+  "proRowReportNote": {
+    "message": "A plain-English recap of what Guardian caught, month by month.",
+    "description": "Locked Pro row note: monthly report"
+  },
+  "proRowFamilyTitle": {
+    "message": "Profiles keep each device separate",
+    "description": "Locked Pro row title: family profiles"
+  },
+  "proRowFamilyNote": {
+    "message": "Named profiles for every device in the household.",
+    "description": "Locked Pro row note: family profiles"
+  },
+  "proActive": {
+    "message": "Pro active. Thank you.",
+    "description": "Shown in place of the upgrade CTA for Pro users"
+  },
+  "ctaSeePlans": {
+    "message": "See both plans",
+    "description": "Neutral upgrade CTA (verbatim store-safe CTA; no price on the button)"
+  },
+  "consentLine": {
+    "message": "Checks run on your device against public threat lists. No browsing history ever leaves this device.",
+    "description": "Popup consent line"
+  },
+  "privacyPolicy": {
+    "message": "Privacy policy",
+    "description": "Privacy-policy link label"
+  },
+  "settings": {
+    "message": "Settings",
+    "description": "Footer link to the options page"
+  },
+  "upgradeSheetTitle": {
+    "message": "Unlock Scam & Phishing Guardian Pro",
+    "description": "Upgrade sheet heading (paywall title, names the extension)"
+  },
+  "sheetBodyRefresh": {
+    "message": "Your threat list froze on $1. Pro refreshes it every day, so today's phishing domains get caught today.",
+    "description": "Upgrade sheet body for the refresh row. $1 = real list date"
+  },
+  "sheetBodyNano": {
+    "message": "Pro reads page text on your device for scam language, a second opinion when the lists do not know a site yet.",
+    "description": "Upgrade sheet body for the Nano row"
+  },
+  "sheetBodyReport": {
+    "message": "Pro keeps a plain-English monthly recap of every risky site Guardian caught.",
+    "description": "Upgrade sheet body for the report row"
+  },
+  "sheetBodyFamily": {
+    "message": "Pro adds named family profiles. One license covers the household's devices.",
+    "description": "Upgrade sheet body for the family-profiles row"
+  },
+  "sheetBodyGeneric": {
+    "message": "Pro adds daily threat-list refresh, on-device scam-text checks, the monthly catch report, and family profiles.",
+    "description": "Upgrade sheet generic body"
+  },
+  "sheetStackRefresh": {
+    "message": "New scam domains caught the day they appear",
+    "description": "Upgrade sheet value-stack bullet: runtime feed refresh"
+  },
+  "sheetStackNano": {
+    "message": "Page text checked on your device, never sent anywhere",
+    "description": "Upgrade sheet value-stack bullet: Nano classification"
+  },
+  "sheetStackReport": {
+    "message": "Monthly catch report in plain English",
+    "description": "Upgrade sheet value-stack bullet: monthly report"
+  },
+  "sheetStackFamily": {
+    "message": "Profiles for every device in the household",
+    "description": "Upgrade sheet value-stack bullet: family profiles"
+  },
+  "sheetPriceLine": {
+    "message": "Free features stay free. See both plans.",
+    "description": "Upgrade sheet anchor note. Neutral pointer, no price in-store (store-safe split); both prices live at zovo.one"
+  },
+  "sheetGuarantee": {
+    "message": "14-day money-back, no questions.",
+    "description": "Upgrade sheet risk-reversal line (real money-back guarantee; there is no trial)"
+  },
+  "maybeLater": {
+    "message": "Maybe later",
+    "description": "Dismiss the upgrade sheet (always respected)"
+  },
+  "consentTitle": {
+    "message": "How Guardian keeps watch",
+    "description": "Options/welcome consent heading"
+  },
+  "consentBody": {
+    "message": "Sites you visit are checked on your device against public threat lists (Phishing.Database, URLhaus) and local look-alike heuristics. No browsing history and no page content ever leaves this device. The optional certificate-age check sends only a bare domain name, never a full URL, to the public crt.sh certificate log, and can be turned off below.",
+    "description": "Full consent disclosure"
+  },
+  "consentPointWarn": {
+    "message": "Guardian warns only when several warning signs agree, and it never blocks a site. The choice is always yours.",
+    "description": "Consent bullet: warn-never-block principle"
+  },
+  "consentPointFeeds": {
+    "message": "Threat data comes from public lists: Phishing.Database (MIT) and URLhaus (abuse.ch).",
+    "description": "Consent bullet: feed sources"
+  },
+  "consentAgree": {
+    "message": "Start protecting my browsing",
+    "description": "Consent acknowledgement button (names the outcome)"
+  },
+  "consentSeenLine": {
+    "message": "Consent noted. Checks run on your device only, and no browsing history ever leaves this device.",
+    "description": "Collapsed consent summary shown after acknowledgement"
+  },
+  "settingsEyebrow": {
+    "message": "Protection",
+    "description": "Options protection-settings section label"
+  },
+  "listSourceBundled": {
+    "message": "Bundled snapshot",
+    "description": "Options threat-list source label (bundled)"
+  },
+  "listSourceRuntime": {
+    "message": "Daily refresh (Pro)",
+    "description": "Options threat-list source label (runtime)"
+  },
+  "listUpdatedLine": {
+    "message": "Threat list updated $1",
+    "description": "Options threat-list date line. $1 = date"
+  },
+  "ctToggleTitle": {
+    "message": "Catch brand-new scam domains",
+    "description": "crt.sh corroborator toggle title"
+  },
+  "ctToggleNote": {
+    "message": "Asks crt.sh when a site's first certificate appeared, a common scam tell. Sends the bare domain only, never the page address.",
+    "description": "crt.sh corroborator toggle note"
+  },
+  "nanoToggleTitle": {
+    "message": "Spots scam wording on the page",
+    "description": "Nano toggle title (Pro)"
+  },
+  "nanoToggleNote": {
+    "message": "Reads page text on your device for scam language. Runs entirely on this device; nothing is sent anywhere.",
+    "description": "Nano toggle note (Pro)"
+  },
+  "nanoUnavailableNote": {
+    "message": "On-device AI is not available on this device.",
+    "description": "Neutral Nano-unavailable note (no alarm)"
+  },
+  "refreshRowTitle": {
+    "message": "Catch today's new scam domains",
+    "description": "Threat-list refresh row title"
+  },
+  "refreshRowFree": {
+    "message": "Pro refreshes the list every day. Your bundled list froze on $1.",
+    "description": "Refresh row note for Free users. $1 = real bundled-list date"
+  },
+  "refreshRowFreeUnknown": {
+    "message": "Pro refreshes the list every day. Your bundled list stays at its build date.",
+    "description": "Refresh row note for Free users when the date is unknown"
+  },
+  "refreshRowPro": {
+    "message": "Refreshed daily. Phishing.Database: $1 · URLhaus: $2.",
+    "description": "Refresh row note for Pro users. $1/$2 = real feed dates"
+  },
+  "allowlistEyebrow": {
+    "message": "Allowed sites",
+    "description": "Allowlist editor section label"
+  },
+  "allowlistNote": {
+    "message": "Sites you mark safe never trigger a warning. Up to 500.",
+    "description": "Allowlist explainer (real cap)"
+  },
+  "allowlistEmpty": {
+    "message": "No allowed sites yet. Tap “This is safe” on a warning and the site appears here.",
+    "description": "Allowlist empty state"
+  },
+  "allowlistRemove": {
+    "message": "Remove",
+    "description": "Allowlist row remove button"
+  },
+  "allowlistRemoveAria": {
+    "message": "Remove $1 from allowed sites",
+    "description": "Allowlist row remove button aria-label. $1 = domain"
+  },
+  "reportEyebrow": {
+    "message": "Monthly catch report",
+    "description": "Report section label"
+  },
+  "reportLockedNote": {
+    "message": "Pro keeps a plain-English recap of what Guardian caught, month by month.",
+    "description": "Report locked note for Free users"
+  },
+  "reportForMonth": {
+    "message": "Report for $1",
+    "description": "Report heading. $1 = month name (e.g. July 2026)"
+  },
+  "reportEmpty": {
+    "message": "Nothing flagged this month. A good month.",
+    "description": "Report empty state (Pro)"
+  },
+  "familyEyebrow": {
+    "message": "Profiles",
+    "description": "Family profiles section label"
+  },
+  "familyNote": {
+    "message": "Named profiles keep separate allowed-site lists and catch ledgers on this device.",
+    "description": "Family profiles explainer"
+  },
+  "familyActiveLabel": {
+    "message": "Active profile",
+    "description": "Active profile picker label"
+  },
+  "familyDefault": {
+    "message": "Default",
+    "description": "The default (unnamed) profile label"
+  },
+  "familyAddPlaceholder": {
+    "message": "New profile name",
+    "description": "Add-profile input placeholder"
+  },
+  "familyAdd": {
+    "message": "Add profile",
+    "description": "Add-profile button"
+  },
+  "familyRemove": {
+    "message": "Remove",
+    "description": "Remove-profile button"
+  },
+  "familyRemoveAria": {
+    "message": "Remove profile $1",
+    "description": "Remove-profile button aria-label. $1 = profile name"
+  },
+  "familyNameHint": {
+    "message": "Lowercase letters, numbers, and hyphens; up to 24 characters.",
+    "description": "Profile-name format hint (matches PROFILE_NAME_PATTERN)"
+  },
+  "familyCapNote": {
+    "message": "Up to 4 profiles per device.",
+    "description": "Profile-count cap note (real cap)"
+  },
+  "licenseEyebrow": {
+    "message": "License",
+    "description": "License section label"
+  },
+  "licenseFreeLine": {
+    "message": "Have a Pro key? Activate it here.",
+    "description": "License card line for Free users"
+  },
+  "licenseActivate": {
+    "message": "Activate Pro",
+    "description": "Open the license modal"
+  },
+  "licenseVerifiedAt": {
+    "message": "Verified $1",
+    "description": "License card verified-date line. $1 = date"
+  },
+  "licenseDifferentKey": {
+    "message": "Use a different key",
+    "description": "Re-open the license modal while Pro"
+  },
+  "aboutEyebrow": {
+    "message": "Built to never block you",
+    "description": "About section label (the core trust promise)"
+  },
+  "aboutAttribution": {
+    "message": "Threat data: Phishing.Database by mitchellkrogza (MIT license) and URLhaus by abuse.ch. Certificate-age data: crt.sh public certificate-transparency logs.",
+    "description": "Feed attribution"
+  },
+  "aboutNeverBlocks": {
+    "message": "Guardian warns. It never blocks a site and never redirects you.",
+    "description": "About line: warn-never-block principle"
+  },
+  "aboutDisclaimer": {
+    "message": "Not affiliated with Google or Chrome. Chrome is a trademark of Google LLC.",
+    "description": "Trademark disclaimer"
+  },
+  "bannerHeadline": {
+    "message": "This site looks risky. Stop here.",
+    "description": "Warning banner headline (calm assessment plus the recommended action)"
+  },
+  "bannerWhyDefault": {
+    "message": "Several warning signs matched this site.",
+    "description": "Banner fallback reason when no payload arrived"
+  },
+  "bannerLeave": {
+    "message": "Leave this site",
+    "description": "Banner primary action"
+  },
+  "bannerContinue": {
+    "message": "Continue anyway",
+    "description": "Banner dismiss action (session)"
+  },
+  "bannerSafe": {
+    "message": "This is safe",
+    "description": "Banner allowlist action"
+  },
+  "bannerCalmNote": {
+    "message": "Guardian warns only when several warning signs agree. The choice is yours.",
+    "description": "Banner trust note"
+  },
+  "bannerClose": {
+    "message": "Dismiss warning",
+    "description": "Banner close-button aria-label"
+  },
+  "bannerSub": {
+    "message": "Checked on your device against public threat lists. Nothing was blocked. You decide.",
+    "description": "Banner sub-line under the reason (privacy + never-blocks reassurance)"
+  },
+  "bannerProNote": {
+    "message": "Caught. Pro also checks today's newest phishing domains.",
+    "description": "One-time polite post-success Pro note shown after the first dismissed catch"
+  },
+  "bannerProNoteCta": {
+    "message": "See both plans →",
+    "description": "Post-success Pro note call-to-action link (neutral, no price)"
+  },
+  "bannerGotIt": {
+    "message": "Got it",
+    "description": "Post-success Pro note dismiss-button aria-label"
+  },
+  "licenseTitle": {
+    "message": "Activate Pro",
+    "description": "License modal heading (feature-gate helper)"
+  },
+  "licensePrompt": {
+    "message": "Paste your license key to unlock Pro.",
+    "description": "License modal prompt (feature-gate helper)"
+  },
+  "cancel": {
+    "message": "Cancel",
+    "description": "License modal cancel button (feature-gate helper)"
+  },
+  "verify": {
+    "message": "Verify",
+    "description": "License modal verify button (feature-gate helper)"
+  },
+  "licenseEmpty": {
+    "message": "Enter a key first.",
+    "description": "License modal status: empty input (feature-gate helper)"
+  },
+  "licenseVerifying": {
+    "message": "Verifying…",
+    "description": "License modal status: verifying (feature-gate helper)"
+  },
+  "licenseSuccess": {
+    "message": "Pro active. Thank you!",
+    "description": "License modal status: success (feature-gate helper)"
+  },
+  "licenseInvalid": {
+    "message": "Invalid key.",
+    "description": "License modal status: invalid (feature-gate helper)"
+  },
+  "licenseError": {
+    "message": "Could not reach the service worker.",
+    "description": "License modal status: SW unreachable (feature-gate helper)"
+  },
+  "familyNameTaken": {
+    "message": "That profile name is already in use.",
+    "description": "Add-profile validation: duplicate name"
+  },
+  "licenseHelp": {
+    "message": "Lost your key? Email support@zovo.one.",
+    "description": "License modal help line (feature-gate helper)"
+  },
+  "headerGetPro": {
+    "message": "See plans →",
+    "description": "Options header gold upgrade button (Free users only; neutral, no price)"
+  },
+  "sidebarEyebrow": {
+    "message": "Pro",
+    "description": "Options sidebar Pro card eyebrow"
+  },
+  "sidebarTitle": {
+    "message": "Unlock Pro. Catch today's scams today.",
+    "description": "Options sidebar Pro card headline (benefit clause, no price)"
+  },
+  "sidebarBenefit1": {
+    "message": "New scam domains caught the same day",
+    "description": "Options sidebar Pro benefit 1"
+  },
+  "sidebarBenefit2": {
+    "message": "Page text checked on your device",
+    "description": "Options sidebar Pro benefit 2"
+  },
+  "sidebarBenefit3": {
+    "message": "Monthly catch report and family profiles",
+    "description": "Options sidebar Pro benefit 3"
+  },
+  "sidebarCta": {
+    "message": "See both plans →",
+    "description": "Options sidebar Pro CTA (neutral, no price; canonical URL utm_content=sidebar)"
+  },
+  "sidebarSub": {
+    "message": "Monthly or one payment · 14-day money-back · manage anytime",
+    "description": "Options sidebar Pro card sub-line (honest framing, no trial claim, no price number)"
+  },
+  "sidebarMoreEyebrow": {
+    "message": "More tools",
+    "description": "Options sidebar more-tools card eyebrow"
+  },
+  "sidebarMoreLink": {
+    "message": "Browse all tools",
+    "description": "Options sidebar neutral funnel link (no sibling cross-sell)"
+  },
+  "sidebarHelp": {
+    "message": "Help",
+    "description": "Options sidebar footer help link"
+  }
+}

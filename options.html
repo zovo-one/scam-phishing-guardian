@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!-- src/options/options.html — SURFACE. Doubles as the install-time
+     welcome/consent page (the SW opens it onInstalled).
+     MV3 CSP: NO inline <script>; classic external options.js only. Title is
+     LITERAL (Chrome 150 __MSG_ bug); visible strings ship literal English +
+     data-i18n, localized at boot by shared/i18n.ts applyI18n().
+     data-compliance hooks (consent/attribution/footer) are audited by
+     shared/compliance.ts isComplianceWired — keep them in any redesign.
+     No review-solicitation links; no fabricated counts in markup OR comments. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scam &amp; Phishing Guardian · Settings</title>
+  <link rel="stylesheet" href="options.css" />
+  <link rel="stylesheet" href="sg-sidebar.css" />
+</head>
+<body class="sg-root sg-options">
+  <header class="sg-header">
+    <span class="sg-header__icon" aria-hidden="true">
+      <!-- Shield + check: original work, calm guardian motif -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M12 3l7 2.8v5.4c0 4.3-2.9 7.3-7 9.8-4.1-2.5-7-5.5-7-9.8V5.8L12 3z" />
+        <path d="M8.8 12.1l2.2 2.2 4.2-4.5" />
+      </svg>
+    </span>
+    <span class="sg-header__title">
+      <span class="sg-header__name" data-i18n="extName">Scam &amp; Phishing Guardian</span>
+      <span class="sg-header__sub" data-i18n="popupSubtitle">Spots scams, never blocks you</span>
+    </span>
+    <a class="sg-btn sg-btn--pro sg-header__cta" id="sg-header-cta"
+       href="https://zovo.one/pricing?utm_source=scam-guardian&utm_medium=extension&utm_campaign=upgrade&utm_content=options"
+       target="_blank" rel="noopener noreferrer" data-i18n="headerGetPro">See plans →</a>
+    <span class="sg-tier sg-badge" id="sg-tier">Free</span>
+  </header>
+
+  <div class="sg-layout">
+  <main class="sg-main">
+    <!-- Consent / welcome (SHIELD hook: data-compliance="consent"). Shown
+         expanded until the user acknowledges; collapsed line afterwards. -->
+    <section class="sg-consent" id="sg-consent" data-compliance="consent" aria-labelledby="sg-consent-title">
+      <h1 class="sg-consent__title" id="sg-consent-title" data-i18n="consentTitle">How Guardian keeps watch</h1>
+      <p class="sg-consent__body" data-i18n="consentBody">Sites you visit are checked on your device against public threat lists (Phishing.Database, URLhaus) and local look-alike heuristics. No browsing history and no page content ever leaves this device. The optional certificate-age check sends only a bare domain name, never a full URL, to the public crt.sh certificate log, and can be turned off below.</p>
+      <ul class="sg-consent__points">
+        <li data-i18n="consentPointWarn">Guardian warns only when several warning signs agree, and it never blocks a site. The choice is always yours.</li>
+        <li data-i18n="consentPointFeeds">Threat data comes from public lists: Phishing.Database (MIT) and URLhaus (abuse.ch).</li>
+      </ul>
+      <div class="sg-consent__actions">
+        <button type="button" class="sg-btn sg-btn--primary" id="sg-consent-agree" data-i18n="consentAgree">Start protecting my browsing</button>
+        <a href="https://zovo.one/privacy-policy" target="_blank" rel="noopener noreferrer" data-i18n="privacyPolicy">Privacy policy</a>
+      </div>
+    </section>
+    <p class="sg-consent-seen" id="sg-consent-seen" data-compliance="consent" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M12 3l7 2.8v5.4c0 4.3-2.9 7.3-7 9.8-4.1-2.5-7-5.5-7-9.8V5.8L12 3z" />
+        <path d="M8.8 12.1l2.2 2.2 4.2-4.5" />
+      </svg>
+      <span data-i18n="consentSeenLine">Consent noted. Checks run on your device only, and no browsing history ever leaves this device.</span>
+      <a href="https://zovo.one/privacy-policy" target="_blank" rel="noopener noreferrer" data-i18n="privacyPolicy">Privacy policy</a>
+    </p>
+
+    <!-- Protection: threat-list meta + refresh row + toggles. -->
+    <section class="sg-card" aria-labelledby="sg-settings-eyebrow">
+      <h2 class="sg-eyebrow" id="sg-settings-eyebrow" data-i18n="settingsEyebrow">Protection</h2>
+
+      <div class="sg-listmeta">
+        <span class="sg-listmeta__source" id="sg-list-source" data-i18n="listSourceBundled">Bundled snapshot</span>
+        <span class="sg-listmeta__sep" aria-hidden="true">·</span>
+        <span id="sg-list-date">—</span>
+      </div>
+
+      <div class="sg-rowline" id="sg-refresh-row">
+        <span class="sg-rowline__text">
+          <span class="sg-rowline__title" data-i18n="refreshRowTitle">Catch today's new scam domains</span>
+          <span class="sg-rowline__note" id="sg-refresh-note">Pro refreshes the list every day.</span>
+        </span>
+        <span class="sg-lock" id="sg-refresh-lock" aria-hidden="true" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <rect x="5" y="11" width="14" height="9" rx="2" />
+            <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+          </svg>
+        </span>
+      </div>
+
+      <div class="sg-rowline sg-toggle-row">
+        <span class="sg-rowline__text">
+          <span class="sg-rowline__title" id="sg-ct-label" data-i18n="ctToggleTitle">Catch brand-new scam domains</span>
+          <span class="sg-rowline__note" data-i18n="ctToggleNote">Asks crt.sh when a site's first certificate appeared, a common scam tell. Sends the bare domain only, never the page address.</span>
+        </span>
+        <button type="button" class="sg-switch" id="sg-ct-toggle" role="switch"
+                aria-checked="true" aria-labelledby="sg-ct-label">
+          <span class="sg-switch__track" aria-hidden="true"><span class="sg-switch__thumb"></span></span>
+        </button>
+      </div>
+
+      <div class="sg-rowline sg-toggle-row" id="sg-nano-row">
+        <span class="sg-rowline__text">
+          <span class="sg-rowline__title" id="sg-nano-label" data-i18n="nanoToggleTitle">Spots scam wording on the page</span>
+          <span class="sg-rowline__note" id="sg-nano-note" data-i18n="nanoToggleNote">Reads page text on your device for scam language. Runs entirely on this device; nothing is sent anywhere.</span>
+        </span>
+        <span class="sg-lock" id="sg-nano-lock" aria-hidden="true" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <rect x="5" y="11" width="14" height="9" rx="2" />
+            <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+          </svg>
+        </span>
+        <button type="button" class="sg-switch" id="sg-nano-toggle" role="switch"
+                aria-checked="true" aria-labelledby="sg-nano-label">
+          <span class="sg-switch__track" aria-hidden="true"><span class="sg-switch__thumb"></span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Allowlist editor (per active profile; cap 500 — real). -->
+    <section class="sg-card" id="allowlist" aria-labelledby="sg-allowlist-eyebrow">
+      <h2 class="sg-eyebrow" id="sg-allowlist-eyebrow" data-i18n="allowlistEyebrow">Allowed sites</h2>
+      <p class="sg-card__note" data-i18n="allowlistNote">Sites you mark safe never trigger a warning. Up to 500.</p>
+      <p class="sg-empty" id="sg-allowlist-empty" data-i18n="allowlistEmpty">No allowed sites yet. Tap “This is safe” on a warning and the site appears here.</p>
+      <ul class="sg-allowlist" id="sg-allowlist-list" hidden></ul>
+    </section>
+
+    <!-- Monthly catch report (Pro). -->
+    <section class="sg-card" id="sg-report-card" aria-labelledby="sg-report-eyebrow">
+      <div class="sg-card__head">
+        <h2 class="sg-eyebrow" id="sg-report-eyebrow" data-i18n="reportEyebrow">Monthly catch report</h2>
+        <span class="sg-lock" id="sg-report-lock" aria-hidden="true" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <rect x="5" y="11" width="14" height="9" rx="2" />
+            <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+          </svg>
+        </span>
+      </div>
+      <p class="sg-card__note" id="sg-report-locked-note" data-i18n="reportLockedNote">Pro keeps a plain-English recap of what Guardian caught, month by month.</p>
+      <div id="sg-report-body" hidden>
+        <p class="sg-report__for" id="sg-report-for"></p>
+        <p class="sg-report__count">
+          <b id="sg-report-count">0</b>
+          <span id="sg-report-count-label" data-i18n="monthLabelMany">risky sites flagged this month</span>
+        </p>
+        <p class="sg-empty" id="sg-report-empty" data-i18n="reportEmpty" hidden>Nothing flagged this month. A good month.</p>
+        <ul class="sg-report-list" id="sg-report-list" hidden></ul>
+      </div>
+    </section>
+
+    <!-- Family profiles (Pro, per-device). -->
+    <section class="sg-card" id="sg-family-card" aria-labelledby="sg-family-eyebrow">
+      <div class="sg-card__head">
+        <h2 class="sg-eyebrow" id="sg-family-eyebrow" data-i18n="familyEyebrow">Profiles</h2>
+        <span class="sg-lock" id="sg-family-lock" aria-hidden="true" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <rect x="5" y="11" width="14" height="9" rx="2" />
+            <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+          </svg>
+        </span>
+      </div>
+      <p class="sg-card__note" data-i18n="familyNote">Named profiles keep separate allowed-site lists and catch ledgers on this device.</p>
+      <div id="sg-family-body" hidden>
+        <span class="sg-label" id="sg-family-active-label" data-i18n="familyActiveLabel">Active profile</span>
+        <div class="sg-seg" id="sg-family-seg" role="radiogroup" aria-labelledby="sg-family-active-label"></div>
+        <form class="sg-family-add" id="sg-family-form">
+          <input type="text" class="sg-input" id="sg-family-input" maxlength="24"
+                 autocomplete="off" spellcheck="false" data-i18n-attr="placeholder:familyAddPlaceholder;aria-label:familyAddPlaceholder"
+                 placeholder="New profile name" />
+          <button type="submit" class="sg-btn sg-btn--secondary" id="sg-family-add" data-i18n="familyAdd">Add profile</button>
+        </form>
+        <p class="sg-card__note sg-card__note--small" data-i18n="familyNameHint">Lowercase letters, numbers, and hyphens; up to 24 characters.</p>
+        <p class="sg-card__note sg-card__note--small" data-i18n="familyCapNote">Up to 4 profiles per device.</p>
+      </div>
+    </section>
+
+    <!-- License. -->
+    <section class="sg-card" aria-labelledby="sg-license-eyebrow">
+      <h2 class="sg-eyebrow" id="sg-license-eyebrow" data-i18n="licenseEyebrow">License</h2>
+      <div id="sg-license-free">
+        <p class="sg-card__note" data-i18n="licenseFreeLine">Have a Pro key? Activate it here.</p>
+        <div class="sg-license__actions">
+          <button type="button" class="sg-btn sg-btn--primary" id="sg-license-open" data-i18n="licenseActivate">Activate Pro</button>
+          <a class="sg-textlink" id="sg-license-plans"
+             href="https://zovo.one/pricing?utm_source=scam-guardian&utm_medium=extension&utm_campaign=upgrade&utm_content=options"
+             target="_blank" rel="noopener noreferrer" data-i18n="ctaSeePlans">See both plans</a>
+        </div>
+      </div>
+      <div id="sg-license-pro" hidden>
+        <p class="sg-license__active" data-i18n="proActive">Pro active. Thank you.</p>
+        <p class="sg-card__note" id="sg-license-verified"></p>
+        <button type="button" class="sg-textlink sg-textlink--btn" id="sg-license-different" data-i18n="licenseDifferentKey">Use a different key</button>
+      </div>
+    </section>
+
+    <!-- About & attribution (SHIELD hook: data-compliance="attribution"). -->
+    <section class="sg-card" aria-labelledby="sg-about-eyebrow">
+      <h2 class="sg-eyebrow" id="sg-about-eyebrow" data-i18n="aboutEyebrow">Built to never block you</h2>
+      <p class="sg-card__note sg-attribution" data-compliance="attribution" data-i18n="aboutAttribution">Threat data: Phishing.Database by mitchellkrogza (MIT license) and URLhaus by abuse.ch. Certificate-age data: crt.sh public certificate-transparency logs.</p>
+      <p class="sg-card__note" data-i18n="aboutNeverBlocks">Guardian warns. It never blocks a site and never redirects you.</p>
+      <p class="sg-card__note sg-card__note--small" data-i18n="aboutDisclaimer">Not affiliated with Google or Chrome. Chrome is a trademark of Google LLC.</p>
+      <p class="sg-card__note sg-card__note--small">
+        <a class="sg-textlink" href="mailto:support@zovo.one">support@zovo.one</a>
+        ·
+        <a class="sg-textlink" href="https://zovo.one/privacy-policy" target="_blank" rel="noopener noreferrer" data-i18n="privacyPolicy">Privacy policy</a>
+      </p>
+    </section>
+  </main>
+
+  <!-- Zovo conversion sidebar (MONETIZE-STANDARD §5 — mandatory rail).
+       Sells ONLY this extension's Pro: no sibling cross-sell, no fabricated
+       proof, no review solicitation, no trial claim. SLUG=scam-guardian;
+       ITEM_ID is stamped at CWS draft creation. sg-sidebar.js
+       hides the Pro card once tier=pro (scam_guardian_pro_status). -->
+  <aside class="sg-sidebar" aria-label="Zovo" id="sg-sidebar">
+    <section class="zs-card zs-card--pro" data-zs="pro" hidden>
+      <div class="zs-eyebrow" data-i18n="sidebarEyebrow">Pro</div>
+      <h3 class="zs-h" data-i18n="sidebarTitle">Unlock Pro. Catch today's scams today.</h3>
+      <ul class="zs-stack">
+        <li data-i18n="sidebarBenefit1">New scam domains caught the same day</li>
+        <li data-i18n="sidebarBenefit2">Page text checked on your device</li>
+        <li data-i18n="sidebarBenefit3">Monthly catch report and family profiles</li>
+      </ul>
+      <a class="sg-btn sg-btn--pro sg-btn--block" data-zs-cta="pricing" id="zs-pro-cta"
+         href="https://zovo.one/pricing?utm_source=scam-guardian&utm_medium=extension&utm_campaign=upgrade&utm_content=sidebar"
+         target="_blank" rel="noopener noreferrer" data-i18n="sidebarCta">See both plans →</a>
+      <p class="zs-sub" data-i18n="sidebarSub">Monthly or one payment · 14-day money-back · manage anytime</p>
+    </section>
+
+    <section class="zs-card" data-zs="more">
+      <div class="zs-eyebrow" data-i18n="sidebarMoreEyebrow">More tools</div>
+      <a class="zs-x" href="https://zovo.one?utm_source=scam-guardian&utm_medium=extension" target="_blank" rel="noopener noreferrer">
+        <span class="zs-x__nm" data-i18n="sidebarMoreLink">Browse all tools</span><span class="zs-x__go" aria-hidden="true">→</span></a>
+    </section>
+
+    <footer class="zs-foot">
+      <a href="https://zovo.one/support" target="_blank" rel="noopener noreferrer" data-i18n="sidebarHelp">Help</a>
+      <a href="https://zovo.one/privacy-policy" target="_blank" rel="noopener noreferrer" data-i18n="privacyPolicy">Privacy</a>
+      <a href="https://zovo.one" target="_blank" rel="noopener noreferrer">Developer site</a>
+    </footer>
+  </aside>
+  </div><!-- /sg-layout -->
+
+  <!-- Polite upgrade sheet (shared pattern with the popup). Sells: trigger
+       line + the Pro value-stack + the real 14-day money-back line + one
+       neutral CTA out to zovo.one (no price in-store, store-safe split). -->
+  <div class="sg-sheet" id="sg-sheet" hidden>
+    <div class="sg-sheet__backdrop" data-sheet-close></div>
+    <div class="sg-sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sg-sheet-title">
+      <h2 class="sg-sheet__title" id="sg-sheet-title" data-i18n="upgradeSheetTitle">Unlock Scam &amp; Phishing Guardian Pro</h2>
+      <p class="sg-sheet__body" id="sg-sheet-body"></p>
+      <ul class="sg-sheet__stack">
+        <li data-i18n="sheetStackRefresh">New scam domains caught the day they appear</li>
+        <li data-i18n="sheetStackNano">Page text checked on your device, never sent anywhere</li>
+        <li data-i18n="sheetStackReport">Monthly catch report in plain English</li>
+        <li data-i18n="sheetStackFamily">Profiles for every device in the household</li>
+      </ul>
+      <p class="sg-sheet__price" data-i18n="sheetPriceLine">Free features stay free. See both plans.</p>
+      <a class="sg-btn sg-btn--pro sg-btn--block"
+         id="sg-sheet-cta"
+         href="https://zovo.one/pricing?utm_source=scam-guardian&utm_medium=extension&utm_campaign=upgrade&utm_content=cap-hit"
+         target="_blank" rel="noopener noreferrer" data-i18n="ctaSeePlans">See both plans</a>
+      <p class="sg-sheet__guarantee" data-i18n="sheetGuarantee">14-day money-back, no questions.</p>
+      <button type="button" class="sg-btn sg-btn--ghost sg-btn--block sg-sheet__later"
+              id="sg-sheet-later" data-i18n="maybeLater">Maybe later</button>
+    </div>
+  </div>
+
+  <!-- License modal mount point (shared/feature-gate openLicenseCheckModal
+       renders into an open shadow root here; the SW is the sole Pro writer
+       via OPTIONS_VERIFY_KEY). -->
+  <div id="sg-license-modal-host"></div>
+
+  <!-- Footer (SHIELD hook: data-compliance="footer"). Bare zovo.one ONLY. -->
+  <footer class="sg-footer" data-compliance="footer">
+    <a class="sg-footer__brand" href="https://zovo.one" target="_blank" rel="noopener noreferrer">zovo.one</a>
+    <a class="sg-footer__link" href="https://zovo.one/privacy-policy" target="_blank" rel="noopener noreferrer" data-i18n="privacyPolicy">Privacy policy</a>
+  </footer>
+
+  <script src="sg-sidebar.js" defer></script>
+  <script src="options.js"></script>
+<script src="zovo150k.js" defer></script>
+</body>
+</html>

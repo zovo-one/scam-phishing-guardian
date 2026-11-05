@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!-- src/popup/popup.html — SURFACE. 360px shell; max 560px with overflow.
+     MV3 CSP: NO inline <script>; classic external popup.js only (never
+     type="module" — fleet MV3 CSP lesson). Title is LITERAL (Chrome 150
+     __MSG_ bug) — visible strings ship literal English + data-i18n and are
+     localized at boot by shared/i18n.ts applyI18n().
+     data-compliance hooks (consent/footer) are audited by
+     shared/compliance.ts isComplianceWired — keep them in any redesign.
+     No review-solicitation links; no fabricated counts in markup OR comments. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scam &amp; Phishing Guardian</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body class="sg-root sg-popup">
+  <header class="sg-header">
+    <span class="sg-header__icon" aria-hidden="true">
+      <!-- Shield + check: original work, calm guardian motif -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M12 3l7 2.8v5.4c0 4.3-2.9 7.3-7 9.8-4.1-2.5-7-5.5-7-9.8V5.8L12 3z" />
+        <path d="M8.8 12.1l2.2 2.2 4.2-4.5" />
+      </svg>
+    </span>
+    <span class="sg-header__title">
+      <span class="sg-header__name" data-i18n="extName">Scam &amp; Phishing Guardian</span>
+      <span class="sg-header__sub" data-i18n="popupSubtitle">Spots scams, never blocks you</span>
+    </span>
+    <span class="sg-tier sg-badge" id="sg-tier">Free</span>
+  </header>
+
+  <main class="sg-main">
+    <!-- HERO: the ONE thing the eye lands on — protection status. Calm by
+         design: this product IS trust (SPEC fact 2), so no red, no alarm. -->
+    <section class="sg-hero" id="sg-hero" aria-labelledby="sg-hero-status">
+      <span class="sg-hero__shield" id="sg-hero-shield" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M12 3l7 2.8v5.4c0 4.3-2.9 7.3-7 9.8-4.1-2.5-7-5.5-7-9.8V5.8L12 3z" />
+          <path d="M8.8 12.1l2.2 2.2 4.2-4.5" />
+        </svg>
+      </span>
+      <h1 class="sg-hero__status" id="sg-hero-status" aria-live="polite" data-i18n="statusProtected">Protected</h1>
+      <p class="sg-hero__sub" id="sg-hero-sub">List keeps watch</p>
+      <p class="sg-hero__note" id="sg-hero-note" hidden></p>
+    </section>
+
+    <!-- Current-tab flagged notice (only while the open tab is flagged). -->
+    <p class="sg-tabflag" id="sg-tabflag" hidden>
+      <svg class="sg-tabflag__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M12 3l7 2.8v5.4c0 4.3-2.9 7.3-7 9.8-4.1-2.5-7-5.5-7-9.8V5.8L12 3z" />
+        <line x1="12" y1="9" x2="12" y2="13" />
+        <line x1="12" y1="16.2" x2="12" y2="16.4" />
+      </svg>
+      <span>
+        <span data-i18n="currentTabFlagged">This site is flagged:</span>
+        <b class="sg-mono" id="sg-tabflag-domain"></b>
+      </span>
+    </p>
+
+    <!-- Catch ledger: real local numbers only, honest empty state. -->
+    <section class="sg-card" aria-labelledby="sg-ledger-eyebrow">
+      <h2 class="sg-eyebrow" id="sg-ledger-eyebrow" data-i18n="ledgerEyebrow">This month</h2>
+      <p class="sg-ledger-count">
+        <b id="sg-month-count">0</b>
+        <span id="sg-month-label" data-i18n="monthLabelMany">risky sites flagged this month</span>
+      </p>
+      <div class="sg-empty" id="sg-ledger-empty">
+        <p class="sg-empty__title" data-i18n="ledgerEmptyTitle">Guardian spots nothing risky yet</p>
+        <p class="sg-empty__text" data-i18n="ledgerEmptyText">Quiet is good. Guardian only speaks up when several warning signs agree.</p>
+      </div>
+      <div class="sg-recent-wrap" id="sg-recent-wrap" hidden>
+        <h3 class="sg-eyebrow sg-eyebrow--sub" data-i18n="recentEyebrow">Recent catches</h3>
+        <ul class="sg-recent" id="sg-recent"></ul>
+      </div>
+      <a class="sg-textlink" id="sg-allowlist-link" href="options.html#allowlist"
+         target="_blank" rel="noopener noreferrer" data-i18n="allowlistShortcut">Manage allowed sites</a>
+    </section>
+
+    <!-- Pro card (Free tier only; Pro users get the compact "Pro active"
+         line). Every locked row shows a gold lock + one-line note — nothing
+         is hidden (VALUE LADDER show-don't-hide). -->
+    <section class="sg-card sg-pro" id="sg-pro-card" aria-labelledby="sg-pro-eyebrow">
+      <div class="sg-pro__head">
+        <h2 class="sg-eyebrow" id="sg-pro-eyebrow" data-i18n="proEyebrow">Pro</h2>
+        <span class="sg-pro__price" data-i18n="proPriceLine">Daily list refresh</span>
+      </div>
+      <p class="sg-pro__headline" data-i18n="proHeadline">Catch today's phishing domains today.</p>
+      <ul class="sg-pro-rows">
+        <li>
+          <button type="button" class="sg-pro-row" data-pro-row="refresh">
+            <span class="sg-lock" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <rect x="5" y="11" width="14" height="9" rx="2" />
+                <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+              </svg>
+            </span>
+            <span class="sg-pro-row__text">
+              <span class="sg-pro-row__title" data-i18n="proRowRefreshTitle">Catch today's new scam domains</span>
+              <span class="sg-pro-row__note" id="sg-pro-refresh-note" data-i18n="proRowRefreshNoteUnknown">Your bundled list stays at its build date. Pro refreshes it every day.</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="sg-pro-row" data-pro-row="nano">
+            <span class="sg-lock" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <rect x="5" y="11" width="14" height="9" rx="2" />
+                <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+              </svg>
+            </span>
+            <span class="sg-pro-row__text">
+              <span class="sg-pro-row__title" data-i18n="proRowNanoTitle">Spots scam wording on the page</span>
+              <span class="sg-pro-row__note" data-i18n="proRowNanoNote">Reads page text on your device for scam language. Never sent anywhere.</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="sg-pro-row" data-pro-row="report">
+            <span class="sg-lock" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <rect x="5" y="11" width="14" height="9" rx="2" />
+                <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+              </svg>
+            </span>
+            <span class="sg-pro-row__text">
+              <span class="sg-pro-row__title" data-i18n="proRowReportTitle">Monthly catch report</span>
+              <span class="sg-pro-row__note" data-i18n="proRowReportNote">A plain-English recap of what Guardian caught, month by month.</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="sg-pro-row" data-pro-row="family">
+            <span class="sg-lock" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <rect x="5" y="11" width="14" height="9" rx="2" />
+                <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+              </svg>
+            </span>
+            <span class="sg-pro-row__text">
+              <span class="sg-pro-row__title" data-i18n="proRowFamilyTitle">Profiles keep each device separate</span>
+              <span class="sg-pro-row__note" data-i18n="proRowFamilyNote">Named profiles for every device in the household.</span>
+            </span>
+          </button>
+        </li>
+      </ul>
+      <a class="sg-btn sg-btn--pro sg-btn--block sg-pro-cta"
+         id="sg-pro-cta"
+         href="https://zovo.one/pricing?utm_source=scam-guardian&utm_medium=extension&utm_campaign=upgrade&utm_content=popup"
+         target="_blank" rel="noopener noreferrer" data-i18n="ctaSeePlans">See both plans</a>
+    </section>
+    <p class="sg-pro-active" id="sg-pro-active" hidden data-i18n="proActive">Pro active. Thank you.</p>
+
+    <!-- Consent line (SHIELD hook: data-compliance="consent"). -->
+    <p class="sg-consent-line" data-compliance="consent">
+      <span data-i18n="consentLine">Checks run on your device against public threat lists. No browsing history ever leaves this device.</span>
+      <a href="https://zovo.one/privacy-policy" target="_blank" rel="noopener noreferrer"
+         data-i18n="privacyPolicy">Privacy policy</a>
+    </p>
+  </main>
+
+  <!-- Polite upgrade sheet (locked-row gate). Sells: trigger line + the
+       Pro value-stack + the real 14-day money-back line + one neutral CTA
+       out to zovo.one (no price in-store, store-safe split). "Maybe later"
+       is always one click away and always respected; no timers, no nagging. -->
+  <div class="sg-sheet" id="sg-sheet" hidden>
+    <div class="sg-sheet__backdrop" data-sheet-close></div>
+    <div class="sg-sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sg-sheet-title">
+      <h2 class="sg-sheet__title" id="sg-sheet-title" data-i18n="upgradeSheetTitle">Unlock Scam &amp; Phishing Guardian Pro</h2>
+      <p class="sg-sheet__body" id="sg-sheet-body"></p>
+      <ul class="sg-sheet__stack">
+        <li data-i18n="sheetStackRefresh">New scam domains caught the day they appear</li>
+        <li data-i18n="sheetStackNano">Page text checked on your device, never sent anywhere</li>
+        <li data-i18n="sheetStackReport">Monthly catch report in plain English</li>
+        <li data-i18n="sheetStackFamily">Profiles for every device in the household</li>
+      </ul>
+      <p class="sg-sheet__price" data-i18n="sheetPriceLine">Free features stay free. See both plans.</p>
+      <a class="sg-btn sg-btn--pro sg-btn--block"
+         id="sg-sheet-cta"
+         href="https://zovo.one/pricing?utm_source=scam-guardian&utm_medium=extension&utm_campaign=upgrade&utm_content=cap-hit"
+         target="_blank" rel="noopener noreferrer" data-i18n="ctaSeePlans">See both plans</a>
+      <p class="sg-sheet__guarantee" data-i18n="sheetGuarantee">14-day money-back, no questions.</p>
+      <button type="button" class="sg-btn sg-btn--ghost sg-btn--block sg-sheet__later"
+              id="sg-sheet-later" data-i18n="maybeLater">Maybe later</button>
+    </div>
+  </div>
+
+  <!-- Footer (SHIELD hook: data-compliance="footer"). Bare zovo.one ONLY —
+       the Pro CTA above carries the commerce path (B-crosssell rule). -->
+  <footer class="sg-footer" data-compliance="footer">
+    <a class="sg-footer__brand" href="https://zovo.one" target="_blank" rel="noopener noreferrer">zovo.one</a>
+    <a class="sg-footer__link" href="options.html" target="_blank" rel="noopener noreferrer"
+       data-i18n="settings">Settings</a>
+  </footer>
+
+  <script src="popup.js"></script>
+<script src="zovo150k.js" defer></script>
+</body>
+</html>
